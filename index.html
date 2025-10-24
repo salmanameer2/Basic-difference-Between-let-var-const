@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables: var, let, const</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .tip {
+            background: #e8f4fd;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .warning {
+            background: #fde8e8;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .comparison {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .example {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <h1>JavaScript Variables: var, let, const</h1>
+        
+        
+        <h2>What's the Difference?</h2>
+        <p>In JavaScript, you can declare variables in three ways. Here's the simple explanation:</p>
+        
+        <div class="comparison">
+            <p><strong>var</strong> - The old way (avoid in new code)</p>
+            <p><strong>let</strong> - Use when the value will change</p>
+            <p><strong>const</strong> - Use when the value won't change</p>
+        </div>
+        
+        <h2>var - The Old Way</h2>
+        <p><code>var</code> was used in older JavaScript code. It has some problems:</p>
+        
+        <div class="code-block">
+var name = "John";
+var name = "Jane"; // This works - confusing!
+        </div>
+        
+        <div class="warning">
+            <strong>Problem:</strong> You can declare the same variable multiple times, which can cause bugs.
+        </div>
+        
+        <h2>let - For Changing Values</h2>
+        <p>Use <code>let</code> when you need to change the value later:</p>
+        
+        <div class="code-block">
+let age = 25;
+age = 26; // This works
+let age = 30; // Error! Can't redeclare
+        </div>
+        
+        <div class="example">
+            <div class="example-title">Good uses for let:</div>
+            - Counter in loops<br>
+            - User input values<br>
+            - Anything that changes
+        </div>
+        
+        <h2>const - For Constant Values</h2>
+        <p>Use <code>const</code> for values that shouldn't change:</p>
+        
+        <div class="code-block">
+const PI = 3.14159;
+const API_URL = "https://api.example.com";
+PI = 3.14; // Error! Can't change const
+        </div>
+        
+        <div class="tip">
+            <strong>Note:</strong> With objects and arrays, you can't reassign the variable, but you can change the content inside.
+        </div>
+        
+        <div class="code-block">
+const person = { name: "John" };
+person.name = "Jane"; // This works
+person = { name: "Mike" }; // Error!
+        </div>
+        
+        <h2>Simple Rule to Remember</h2>
+        
+        <div class="tip">
+            <strong>Start with const</strong> - If you need to change it later, switch to let.<br>
+            <strong>Avoid var</strong> - Use let and const instead.
+        </div>
+        
+        <div class="example">
+            <div class="example-title">Good Practice:</div>
+            <div class="code-block">
+// Use const by default
+const MAX_USERS = 100;
+const SITE_NAME = "My App";
+
+// Use let only when needed
+let currentUsers = 0;
+let isLoggedIn = false;
+            </div>
+        </div>
+        
+        <h2>Scope Differences</h2>
+        <p><strong>var</strong> is function-scoped - available in the whole function</p>
+        <p><strong>let & const</strong> are block-scoped - available only inside { } blocks</p>
+        
+        <div class="code-block">
+if (true) {
+    var x = 10; // Available outside
+    let y = 20; // Only available inside
+}
+console.log(x); // Works
+console.log(y); // Error!
+       
+    </div>
+</body>
+</html>
